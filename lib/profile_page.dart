@@ -1,6 +1,7 @@
 import 'package:bible_journey/bible_page.dart';
 import 'package:bible_journey/life_area_journey.dart';
 import 'package:bible_journey/main_bottom_nav_screen.dart';
+import 'package:bible_journey/notification_page.dart';
 import 'package:bible_journey/premium_page.dart';
 import 'package:bible_journey/profile_details.dart';
 import 'package:bible_journey/widgets/buttons/custom_navbar.dart';
@@ -87,7 +88,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
                     const SizedBox(height: 5),
 
-
                     CustomText(
                         textIcon: Icons.subscript_outlined,
                         text: "Subscription",
@@ -96,7 +96,6 @@ class _ProfilePageState extends State<ProfilePage> {
                           Navigator.push(
                               context, MaterialPageRoute(builder: (_) => const PremiumPage()));
                         }),
-
 
                     Padding(
                       padding: const EdgeInsets.only(left: 30),
@@ -108,7 +107,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 10),
                   ],
                 ),
@@ -149,7 +147,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   const SizedBox(height: 10),
                   CustomText(
-                      textIcon: Icons.wordpress_rounded, 
+                      textIcon: Icons.wordpress_rounded,
                       text: "Change Language", 
                       trailingIcon: Icons.arrow_forward_ios),
                    
@@ -158,7 +156,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   CustomText(
                       textIcon: Icons.notifications,
                       text: "Notifications", 
-                      trailingIcon: Icons.arrow_forward_ios),
+                      trailingIcon: Icons.arrow_forward_ios,
+                      onTap: (){
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (_) => const NotificationPage()));
+                      }),
                   
                   const SizedBox(height: 10),
                   
@@ -174,8 +176,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       text: "Disabled Account",
                       trailingIcon: Icons.arrow_forward_ios),
                   const SizedBox(height: 10),
-                  
-                  
+
                 ],
               ),
             ),
@@ -288,7 +289,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ]
         ),
-
 
       bottomNavigationBar: CustomNavbar(
         currentIndex: _selectedIndex,

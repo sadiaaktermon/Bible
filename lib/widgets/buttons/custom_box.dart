@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBox extends StatelessWidget {
   final String title;
   final String subtitle;
-  final Icon icon;
+  final String iconPath;
+  final Color color;
   final VoidCallback onTap;
 
   const CustomBox({
     super.key,
     required this.title,
     required this.subtitle,
-    required this.icon,
+    required this.iconPath,
+    required this.color,
     required this.onTap,
   });
 
@@ -37,7 +40,12 @@ class CustomBox extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                icon,
+                SvgPicture.asset(
+                  iconPath,
+                  width: 25,
+                  height: 25,
+                  color: color,
+                ),
                 const SizedBox(height: 10),
                 Text(
                   title,

@@ -7,6 +7,7 @@ import 'package:bible_journey/widgets/buttons/custom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:bible_journey/daily_prayer_screen.dart';
 import 'package:bible_journey/daily_devotion_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 class MainBottomNavScreen extends StatefulWidget {
@@ -101,12 +102,11 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
                                 padding: const EdgeInsets.only(left: 10, top: 8),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Icon(
-                                      Icons.handshake,
-                                      size: 30,
-                                      color: Colors.green,
-                                    ),
+                                  children:  [
+                                  SvgPicture.asset(
+                                  'assets/images/Vector (3).svg',
+                                  width: 25,
+                                  height: 25,),
                                     SizedBox(height: 10),
                                     Text(
                                       'Daily Prayer',
@@ -157,10 +157,11 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
                                 padding: const EdgeInsets.only(left: 10, top: 8),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Icon(
-                                      Icons.book,
-                                      size: 30,
+                                  children:  [
+                                  SvgPicture.asset(
+                                  'assets/images/Vector (1).svg',
+                                  width: 24,
+                                  height: 24,
                                       color: Colors.green,
                                     ),
                                     SizedBox(height: 10),
@@ -221,10 +222,11 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  Icons.done_rounded,
-                                  size: 30,
+                              children:  [
+                                SvgPicture.asset(
+                                  'assets/images/Vector (4).svg',
+                                  width: 25,
+                                  height: 25,
                                   color: Colors.green,
                                 ),
                                 SizedBox(height: 10),
@@ -272,10 +274,11 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Icon(
-                                    Icons.location_on,
-                                    size: 30,
+                                children:  [
+                                  SvgPicture.asset(
+                                    'assets/images/Vector (2).svg',
+                                    width: 25,
+                                    height: 25,
                                     color: Colors.green,
                                   ),
                                   SizedBox(height: 10),
@@ -367,7 +370,10 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
                             ),
                           ),
                           SizedBox(height: 25),
-                         CustomButton( text: "View All Journey", onTap: (){})
+                         CustomButton( text: "View All Journey", onTap: (){
+                           Navigator.push(
+                               context, MaterialPageRoute(builder: (_) => const LifeAreaJourney()));
+                         })
 
                         ],
                       ),

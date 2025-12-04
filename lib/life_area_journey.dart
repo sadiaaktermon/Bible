@@ -44,9 +44,8 @@ class _LifeAreaJourneyState extends State<LifeAreaJourney> {
                   CustomBox(
                       title: "Faith and Perseverance",
                       subtitle: "Nurturing your sacred bond",
-                      icon: Icon(Icons.import_contacts_sharp,
+                    iconPath: 'assets/images/Vector (3).svg',
                         color: Color(0xff83BF8B),
-                      ),
                       onTap: (){
                         Navigator.push(
                           context,
@@ -60,9 +59,8 @@ class _LifeAreaJourneyState extends State<LifeAreaJourney> {
                   CustomBox(
                       title: "Parenting",
                       subtitle: "Parenting Raising a family in faith",
-                      icon: Icon(Icons.import_contacts_sharp,
+                      iconPath: 'assets/images/Vector (1).svg',
                         color: Color(0xff83BF8B),
-                      ),
                       onTap: (){} ),
                 ],
               ),
@@ -74,17 +72,17 @@ class _LifeAreaJourneyState extends State<LifeAreaJourney> {
                   CustomBox(
                       title: "Happiness & Joy",
                       subtitle: "Discovering true contentment",
-                      icon: Icon(Icons.import_contacts_sharp,
+                      iconPath: 'assets/images/Vector (4).svg',
                         color: Color(0xff83BF8B),
-                      ),
                       onTap: (){} ),
+
                   const SizedBox(height: 13),
+
                   CustomBox(
                       title: "Friendship",
                       subtitle: "Building godly relationships",
-                      icon: Icon(Icons.import_contacts_sharp,
+                    iconPath: 'assets/images/Vector (2).svg',
                         color: Color(0xff83BF8B),
-                      ),
                       onTap: (){} ),
                 ],
               ),
@@ -92,19 +90,20 @@ class _LifeAreaJourneyState extends State<LifeAreaJourney> {
               Row( crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [ const SizedBox(height: 13),
+
                   CustomBox( title: "Work & Career",
                       subtitle: "Navigating your Friendship",
-                      icon: Icon(Icons.import_contacts_sharp,
+                    iconPath: 'assets/images/Vector (3).svg',
                         color: Color(0xff83BF8B),
-                      ),
-                      onTap: (){}
-                  ),
+                      onTap: (){}),
+
                   const SizedBox(height: 13),
+
                   CustomBox( title: "Community",
                       subtitle: "Connecting with professional life believers",
-                      icon: Icon(Icons.import_contacts_sharp,
+                    iconPath: 'assets/images/Vector (1).svg',
                         color: Color(0xff83BF8B),
-                      ), onTap: (){} ),
+                       onTap: (){} ),
                 ],
               ),
               const SizedBox(height: 20),
@@ -114,17 +113,17 @@ class _LifeAreaJourneyState extends State<LifeAreaJourney> {
                   const SizedBox(height: 13),
                   CustomBox( title: "Overcoming Anxiety",
                       subtitle: "Finding peace in His presence",
-                      icon: Icon(Icons.import_contacts_sharp,
+                      iconPath: 'assets/images/Vector (4).svg',
                         color: Color(0xff83BF8B),
-                      ),
                       onTap: (){}
                   ),
                   const SizedBox(height: 13),
+
                   CustomBox( title: "Finding Purpose",
                       subtitle: "Living a life of meaning",
-                      icon: Icon(Icons.import_contacts_sharp,
+                      iconPath: 'assets/images/Vector (2).svg',
                         color: Color(0xff83BF8B),
-                      ), onTap: (){}
+                      onTap: (){}
                   ),
                 ],
               ),

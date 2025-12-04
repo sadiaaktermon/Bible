@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavbar extends StatelessWidget {
   final Function(int) onItemPressed;
@@ -18,22 +19,50 @@ class CustomNavbar extends StatelessWidget {
       currentIndex: currentIndex,
       selectedItemColor: const Color(0xff83BF8B),
       unselectedItemColor: const Color(0xff595959),
-      onTap: onItemPressed, // callback passed from parent
-      items: const [
+      onTap: onItemPressed,
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: SvgPicture.asset(
+            'assets/images/Vector.svg',
+            width: 24,
+            height: 24,
+            color: currentIndex == 0
+                ? const Color(0xff83BF8B)
+                : const Color(0xff595959),
+          ),
           label: "Home",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.menu_book),
+          icon: SvgPicture.asset(
+            'assets/images/Vector (1).svg',
+            width: 24,
+            height: 24,
+            color: currentIndex == 1
+                ? const Color(0xff83BF8B)
+                : const Color(0xff595959),
+          ),
           label: "Bible",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.explore),
+          icon: SvgPicture.asset(
+            'assets/images/Vector (2).svg',
+            width: 24,
+            height: 24,
+            color: currentIndex == 2
+                ? const Color(0xff83BF8B)
+                : const Color(0xff595959),
+          ),
           label: "Journey",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: SvgPicture.asset(
+            'assets/images/User.svg',
+            width: 24,
+            height: 24,
+            color: currentIndex == 3
+                ? const Color(0xff83BF8B)
+                : const Color(0xff595959),
+          ),
           label: "Profile",
         ),
       ],
