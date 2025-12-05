@@ -28,57 +28,59 @@ class _DailyDevotionScreenState extends State<DailyDevotionScreen> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Finding Peace in His Presence",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Finding Peace in His Presence",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-
-              const SizedBox(height: 20),
-
-              _buildSelectableContainer(
-                index: 0,
-                title: "Scripture",
-                content: "I have told you these things, so that in me you may have peace. In this world you will have trouble. But take heart! I have overcome the world",
-                centerText: true,
-              ),
-
-              const SizedBox(height: 16),
-
-              _buildSelectableContainer(
-                index: 1,
-                title: "Reflection",
-                content: "Jesus doesn't promise a life free from hardship. Instead, He offers unshakable peace found only in Him. This assurance reminds us that His presence remains with us through every struggle, and the ultimate victory has already been won.",
-              ),
-
-              const SizedBox(height: 16),
-
-              _buildSelectableContainer(
-                index: 2,
-                title: "Practical Application",
-                content: "Today, when you feel overwhelmed by the troubles promise. How can you actively take heart and your circumstances? Consider one specific worry and intentionally surrender it to Him in prayer.",
-              ),
-
-              const SizedBox(height: 30),
-              CustomButton(
-                text: "Completed Devotion",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const StartQuiz()),
-                  );
-                },
-              ),
-            ],
+        
+                const SizedBox(height: 20),
+        
+                _buildSelectableContainer(
+                  index: 0,
+                  title: "Scripture",
+                  content: "I have told you these things, so that in me you may have peace. In this world you will have trouble. But take heart! I have overcome the world",
+                  centerText: true,
+                ),
+        
+                const SizedBox(height: 16),
+        
+                _buildSelectableContainer(
+                  index: 1,
+                  title: "Reflection",
+                  content: "Jesus doesn't promise a life free from hardship. Instead, He offers unshakable peace found only in Him. This assurance reminds us that His presence remains with us through every struggle, and the ultimate victory has already been won.",
+                ),
+        
+                const SizedBox(height: 16),
+        
+                _buildSelectableContainer(
+                  index: 2,
+                  title: "Practical Application",
+                  content: "Today, when you feel overwhelmed by the troubles promise. How can you actively take heart and your circumstances? Consider one specific worry and intentionally surrender it to Him in prayer.",
+                ),
+        
+                const SizedBox(height: 30),
+                CustomButton(
+                  text: "Completed Devotion",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const StartQuiz()),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

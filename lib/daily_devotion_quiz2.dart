@@ -30,61 +30,63 @@ class _DailyDevotionQuiz1State extends State<DailyDevotionQuiz2> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              const Text("Question 3 of 3", style: TextStyle(fontSize: 14, color: Colors.black)),
-              const SizedBox(height: 13),
-              Container(
-                height: 13,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xffFFFFFF),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: FractionallySizedBox(
-                  alignment: Alignment.centerLeft,
-                  widthFactor: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xff83BF8B),
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: Color(0xff83BF8B)),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                const Text("Question 3 of 3", style: TextStyle(fontSize: 14, color: Colors.black)),
+                const SizedBox(height: 13),
+                Container(
+                  height: 13,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color(0xffFFFFFF),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: FractionallySizedBox(
+                    alignment: Alignment.centerLeft,
+                    widthFactor: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xff83BF8B),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: Color(0xff83BF8B)),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 36),
-              const Text("God needs perfect conditions to work in your life.", style: TextStyle(fontSize: 18, color: Colors.black)),
-              const SizedBox(height: 20),
-
-              // Option 1
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedOption = 1;
-                  });
-                  _goToNextPage();
-                },
-                child: optionBox("True", 1),
-              ),
-              const SizedBox(height: 20),
-
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedOption = 2;
-                  });
-
-                  _goToNextPage();
-                },
-                child: optionBox("False", 2),
-              ),
-            ],
+                const SizedBox(height: 36),
+                const Text("God needs perfect conditions to work in your life.", style: TextStyle(fontSize: 18, color: Colors.black)),
+                const SizedBox(height: 20),
+        
+                // Option 1
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedOption = 1;
+                    });
+                    _goToNextPage();
+                  },
+                  child: optionBox("True", 1),
+                ),
+                const SizedBox(height: 20),
+        
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedOption = 2;
+                    });
+        
+                    _goToNextPage();
+                  },
+                  child: optionBox("False", 2),
+                ),
+              ],
+            ),
           ),
         ),
       ),

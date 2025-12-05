@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomText extends StatelessWidget {
-  final IconData textIcon;
+  final String textIconPath;
   final String text;
   final IconData trailingIcon;
   final String? subText;
@@ -9,7 +10,7 @@ class CustomText extends StatelessWidget {
 
   const CustomText({
     super.key,
-    required this.textIcon,
+    required this.textIconPath,
     required this.text,
     required this.trailingIcon,
     this.subText,
@@ -34,10 +35,11 @@ class CustomText extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(
-                        textIcon,
-                        color: const Color(0xff83BF8B),
-                        size: 20,
+                      SvgPicture.asset(
+                        textIconPath,  // The path to your local SVG
+                        color: Color(0xff83BF8B),
+                        width: 20,  // Adjust width to match the size you want
+                        height: 20, // Adjust height to match the size you want
                       ),
                       const SizedBox(width: 8),
                       Text(

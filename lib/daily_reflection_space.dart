@@ -27,49 +27,51 @@ class _DailyReflectionSpaceState extends State<DailyReflectionSpace> {
           elevation: 0,
         ),
 
-        body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                  const SizedBox(height: 20),
-              const Text("Write your Daily Reflection",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black
-                  )
-                 ),
-                    SizedBox(height: 40),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0, right: 16.0),
-                      child: Container(
-                        height: 465,
-                        width: 380,
-                        padding: const EdgeInsets.all(16.0),
-                        decoration: BoxDecoration(
-                          color: Color(0xffE3E9E3),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: TextField(
-                          maxLines: null,
-                          expands: true,
-                          decoration: InputDecoration(
-                            hintText: "Write your Daily reflection here...",
-                            border: InputBorder.none,
+        body: SingleChildScrollView(
+          child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    const SizedBox(height: 20),
+                const Text("Write your Daily Reflection",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black
+                    )
+                   ),
+                      SizedBox(height: 40),
+          
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, right: 16.0),
+                        child: Container(
+                          height: 465,
+                          width: 380,
+                          padding: const EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                            color: Color(0xffE3E9E3),
+                            borderRadius: BorderRadius.circular(16),
                           ),
-                          style: TextStyle(fontSize: 16, color: Colors.black),
+                          child: TextField(
+                            maxLines: null,
+                            expands: true,
+                            decoration: InputDecoration(
+                              hintText: "Write your Daily reflection here...",
+                              border: InputBorder.none,
+                            ),
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-
-                    SizedBox(height: 80),
-                    CustomButton(text: "Mark as Done", onTap: (){})
-                   ],
+          
+                      SizedBox(height: 80),
+                      CustomButton(text: "Mark as Done", onTap: (){})
+                     ],
+                   ),
+                  ),
                  ),
-                ),
-               ),
+        ),
 
       bottomNavigationBar: CustomNavbar(
         currentIndex: _selectedIndex,

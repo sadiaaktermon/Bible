@@ -26,50 +26,83 @@ class _StartQuizState extends State<StartQuiz> {
         elevation: 0,
       ),
 
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-
-            Container(
-              height: 200,
-          child: Image.asset(
-            'assets/images/Rectangle 8.png',
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.fill,
-          ),
-               ),
-
-            const SizedBox(height: 25),
-
-            const Column(
-              children: [
-                Text(
-                  "Today's Quiz",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.black,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  "You've completed a step in 'Finding Peace'!",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.grey,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+        
+              Container(
+                height: 200,
+            child: Image.asset(
+              'assets/images/Rectangle 8.png',
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.fill,
             ),
-
-            const SizedBox(height: 25),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
+                 ),
+        
+              const SizedBox(height: 25),
+        
+              const Column(
+                children: [
+                  Text(
+                    "Today's Quiz",
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "You've completed a step in 'Finding Peace'!",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.grey,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+        
+              const SizedBox(height: 25),
+        
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      height: 130,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFE3E9E3),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              "3 Questions",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              "Total questions",
+                              style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+        
+        
+                  Container(
                     height: 130,
                     width: 180,
                     decoration: BoxDecoration(
@@ -81,7 +114,7 @@ class _StartQuizState extends State<StartQuiz> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text(
-                            "3 Questions",
+                            "1 minutes",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 14,
@@ -89,7 +122,7 @@ class _StartQuizState extends State<StartQuiz> {
                           ),
                           SizedBox(height: 4),
                           Text(
-                            "Total questions",
+                            "Estimated time",
                             style: TextStyle(
                               color: Colors.black54,
                               fontSize: 12,
@@ -99,9 +132,15 @@ class _StartQuizState extends State<StartQuiz> {
                       ),
                     ),
                   ),
-
-
-                Container(
+        
+                ],
+              ),
+        
+              const SizedBox(height: 20),
+        
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
                   height: 130,
                   width: 180,
                   decoration: BoxDecoration(
@@ -113,7 +152,7 @@ class _StartQuizState extends State<StartQuiz> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Text(
-                          "1 minutes",
+                          "Book of Psalms",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 14,
@@ -121,7 +160,7 @@ class _StartQuizState extends State<StartQuiz> {
                         ),
                         SizedBox(height: 4),
                         Text(
-                          "Estimated time",
+                          "topics",
                           style: TextStyle(
                             color: Colors.black54,
                             fontSize: 12,
@@ -131,61 +170,24 @@ class _StartQuizState extends State<StartQuiz> {
                     ),
                   ),
                 ),
-
-              ],
-            ),
-
-            const SizedBox(height: 20),
-
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                height: 130,
-                width: 180,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE3E9E3),
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Book of Psalms",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        "topics",
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
-            ),
-            const SizedBox(height: 35),
-
-            CustomButton(
-              text: "Start Quiz",
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DailyDevotionQuiz(),
-                  ),
-                );
-              },
-            ),
-          ],
+              const SizedBox(height: 35),
+        
+              CustomButton(
+                text: "Start Quiz",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DailyDevotionQuiz(),
+                    ),
+                  );
+                },
+              ),
+            ],
+           ),
          ),
-       ),
+      ),
 
       bottomNavigationBar: CustomNavbar(
         currentIndex: _selectedIndex,

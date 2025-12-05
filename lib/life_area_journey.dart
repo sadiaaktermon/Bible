@@ -26,108 +26,167 @@ class _LifeAreaJourneyState extends State<LifeAreaJourney> {
         title: const Text("Life Area Journeys"),
         centerTitle: true,
         elevation: 0,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new,
+              color: Colors.black),
+          onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder:(context)=>MainBottomNavScreen() )),
+        ),
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              const Text(
-                "Find guidance and wisdom for every season of life.",
-                style: TextStyle(fontSize: 14, color: Colors.black),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [ const SizedBox(height: 13),
-                  CustomBox(
-                      title: "Faith and Perseverance",
-                      subtitle: "Nurturing your sacred bond",
-                    iconPath: 'assets/images/Vector (3).svg',
-                        color: Color(0xff83BF8B),
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const JourneyDetails(),
-                          ),
-                        );
-                      }
-                      ),
-                  const SizedBox(height: 13),
-                  CustomBox(
-                      title: "Parenting",
-                      subtitle: "Parenting Raising a family in faith",
-                      iconPath: 'assets/images/Vector (1).svg',
-                        color: Color(0xff83BF8B),
-                      onTap: (){} ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row( crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(height: 13),
-                  CustomBox(
-                      title: "Happiness & Joy",
-                      subtitle: "Discovering true contentment",
-                      iconPath: 'assets/images/Vector (4).svg',
-                        color: Color(0xff83BF8B),
-                      onTap: (){} ),
-
-                  const SizedBox(height: 13),
-
-                  CustomBox(
-                      title: "Friendship",
-                      subtitle: "Building godly relationships",
-                    iconPath: 'assets/images/Vector (2).svg',
-                        color: Color(0xff83BF8B),
-                      onTap: (){} ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row( crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [ const SizedBox(height: 13),
-
-                  CustomBox( title: "Work & Career",
-                      subtitle: "Navigating your Friendship",
-                    iconPath: 'assets/images/Vector (3).svg',
-                        color: Color(0xff83BF8B),
-                      onTap: (){}),
-
-                  const SizedBox(height: 13),
-
-                  CustomBox( title: "Community",
-                      subtitle: "Connecting with professional life believers",
-                    iconPath: 'assets/images/Vector (1).svg',
-                        color: Color(0xff83BF8B),
-                       onTap: (){} ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row( crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(height: 13),
-                  CustomBox( title: "Overcoming Anxiety",
-                      subtitle: "Finding peace in His presence",
-                      iconPath: 'assets/images/Vector (4).svg',
-                        color: Color(0xff83BF8B),
-                      onTap: (){}
-                  ),
-                  const SizedBox(height: 13),
-
-                  CustomBox( title: "Finding Purpose",
-                      subtitle: "Living a life of meaning",
+      body:  
+      SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                const Text(
+                  "Find guidance and wisdom for every season of life.",
+                  style: TextStyle(fontSize: 14, color: Colors.black),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [ const SizedBox(height: 13),
+                    CustomBox(
+                        title: "Faith and Perseverance",
+                        subtitle: "Nurturing your sacred bond",
+                      iconPath: 'assets/images/Vector (3).svg',
+                          color: Color(0xff83BF8B),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JourneyDetails(),
+                            ),
+                          );
+                        }
+                        ),
+                    const SizedBox(height: 13),
+                    CustomBox(
+                        title: "Parenting",
+                        subtitle: "Parenting Raising a family in faith",
+                        iconPath: 'assets/images/Vector (1).svg',
+                          color: Color(0xff83BF8B),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JourneyDetails(),
+                            ),
+                          );
+                        } ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row( crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const SizedBox(height: 13),
+                    CustomBox(
+                        title: "Happiness & Joy",
+                        subtitle: "Discovering true contentment",
+                        iconPath: 'assets/images/Vector (4).svg',
+                          color: Color(0xff83BF8B),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JourneyDetails(),
+                            ),
+                          );
+                        } ),
+        
+                    const SizedBox(height: 13),
+        
+                    CustomBox(
+                        title: "Friendship",
+                        subtitle: "Building godly relationships",
                       iconPath: 'assets/images/Vector (2).svg',
-                        color: Color(0xff83BF8B),
-                      onTap: (){}
-                  ),
-                ],
-              ),
-            ],
+                          color: Color(0xff83BF8B),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JourneyDetails(),
+                            ),
+                          );
+                        } ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row( crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [ const SizedBox(height: 13),
+        
+                    CustomBox( title: "Work & Career",
+                        subtitle: "Navigating your Friendship",
+                      iconPath: 'assets/images/Vector (3).svg',
+                          color: Color(0xff83BF8B),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JourneyDetails(),
+                            ),
+                          );
+                        }),
+        
+                    const SizedBox(height: 13),
+        
+                    CustomBox( title: "Community",
+                        subtitle: "Connecting with professional life believers",
+                      iconPath: 'assets/images/Vector (1).svg',
+                          color: Color(0xff83BF8B),
+                         onTap: (){
+                           Navigator.push(
+                             context,
+                             MaterialPageRoute(
+                               builder: (context) => const JourneyDetails(),
+                             ),
+                           );
+                         } ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row( crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const SizedBox(height: 13),
+                    CustomBox( title: "Overcoming Anxiety",
+                        subtitle: "Finding peace in His presence",
+                        iconPath: 'assets/images/Vector (4).svg',
+                          color: Color(0xff83BF8B),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JourneyDetails(),
+                            ),
+                          );
+                        }
+                    ),
+                    const SizedBox(height: 13),
+        
+                    CustomBox( title: "Finding Purpose",
+                        subtitle: "Living a life of meaning",
+                        iconPath: 'assets/images/Vector (2).svg',
+                          color: Color(0xff83BF8B),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JourneyDetails(),
+                            ),
+                          );
+                        }
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

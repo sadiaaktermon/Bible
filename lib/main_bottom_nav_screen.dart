@@ -26,6 +26,8 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
       backgroundColor: Color(0xFFF8F5F2),
       appBar: AppBar(
         backgroundColor: Color(0xFFF8F5F2),
+        automaticallyImplyLeading: false,
+
         toolbarHeight: 64,
         title: Row(
           children: [
@@ -56,7 +58,8 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),
-            iconSize: 30,
+            iconSize: 25,
+            color: Color(0xff83BF8B),
             onPressed: () {},
           ),
         ],

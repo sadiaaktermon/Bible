@@ -29,97 +29,99 @@ class _DailyDevotionQuiz1State extends State<DailyDevotionQuiz1> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              const Text("Question 2 of 3", style: TextStyle(fontSize: 14, color: Colors.black)),
-              const SizedBox(height: 13),
-              Container(
-                height: 13,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xffFFFFFF),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: FractionallySizedBox(
-                  alignment: Alignment.centerLeft,
-                  widthFactor: 0.66,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xff83BF8B),
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: Color(0xff83BF8B)),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                const Text("Question 2 of 3", style: TextStyle(fontSize: 14, color: Colors.black)),
+                const SizedBox(height: 13),
+                Container(
+                  height: 13,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color(0xffFFFFFF),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: FractionallySizedBox(
+                    alignment: Alignment.centerLeft,
+                    widthFactor: 0.66,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xff83BF8B),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: Color(0xff83BF8B)),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 36),
-              const Text("What was hovering over the waters before God spoke?", style: TextStyle(fontSize: 18, color: Colors.black)),
-              const SizedBox(height: 20),
-
-              // Option 1
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedOption = 1;
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 1, previousAnswer: widget.selectedOption)),
-                  );
-                },
-                child: optionBox("Angels", 1),
-              ),
-              const SizedBox(height: 20),
-
-              // Option 2 (Correct Answer)
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedOption = 2;
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 2, previousAnswer: widget.selectedOption)),
-                  );
-                },
-                child: optionBox("The Spirit of God", 2),
-              ),
-              const SizedBox(height: 20),
-
-              // Option 3
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedOption = 3;
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 3, previousAnswer: widget.selectedOption)),
-                  );
-                },
-                child: optionBox("Darkness", 3),
-              ),
-              const SizedBox(height: 20),
-
-              // Option 4
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedOption = 4;
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 4, previousAnswer: widget.selectedOption)),
-                  );
-                },
-                child: optionBox("Wind", 4),
-              ),
-            ],
+                const SizedBox(height: 36),
+                const Text("What was hovering over the waters before God spoke?", style: TextStyle(fontSize: 18, color: Colors.black)),
+                const SizedBox(height: 20),
+        
+                // Option 1
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedOption = 1;
+                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 1, previousAnswer: widget.selectedOption)),
+                    );
+                  },
+                  child: optionBox("Angels", 1),
+                ),
+                const SizedBox(height: 20),
+        
+                // Option 2 (Correct Answer)
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedOption = 2;
+                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 2, previousAnswer: widget.selectedOption)),
+                    );
+                  },
+                  child: optionBox("The Spirit of God", 2),
+                ),
+                const SizedBox(height: 20),
+        
+                // Option 3
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedOption = 3;
+                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 3, previousAnswer: widget.selectedOption)),
+                    );
+                  },
+                  child: optionBox("Darkness", 3),
+                ),
+                const SizedBox(height: 20),
+        
+                // Option 4
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedOption = 4;
+                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DailyDevotionQuiz2(selectedOption: 4, previousAnswer: widget.selectedOption)),
+                    );
+                  },
+                  child: optionBox("Wind", 4),
+                ),
+              ],
+            ),
           ),
         ),
       ),
