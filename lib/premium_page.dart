@@ -18,6 +18,7 @@ class PremiumPage extends StatefulWidget {
 
 class _PremiumPageState extends State<PremiumPage> {
   int _selectedIndex = 3;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -75,14 +76,29 @@ class _PremiumPageState extends State<PremiumPage> {
                   title: "Daily Devotion",
                   subtitle: "Download content for your quiet time."),
               const SizedBox(height: 10),
-              
-              CustomPremium1(
-                  title: "Yearly Premium",
-                  subtitle: "\$39.99/year (equals \$3.33/month)"),
 
               CustomPremium1(
-                  title: "Monthly Premium",
-                  subtitle: "\$5.99/month"),
+                title: "Yearly Premium",
+                subtitle: "\$39.99/year",
+                isSelected: selectedIndex == 0,
+                onTap: () {
+                  setState(() {
+                    selectedIndex = 0;
+                  });
+                },
+              ),
+
+              CustomPremium1(
+                title: "Monthly Premium",
+                subtitle: "\$5.99/month",
+                isSelected: selectedIndex == 1,
+                onTap: () {
+                  setState(() {
+                    selectedIndex = 1;
+                  });
+                },
+              ),
+
               const SizedBox(height: 10),
               CustomButton(text: "Start 7-Day Free Trial", onTap: (){
                 Navigator.push(

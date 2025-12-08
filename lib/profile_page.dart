@@ -1,10 +1,13 @@
 import 'package:bible_journey/bible_page.dart';
+import 'package:bible_journey/disabled_page.dart';
+import 'package:bible_journey/helpsupport_page.dart';
 import 'package:bible_journey/language_page.dart';
 import 'package:bible_journey/life_area_journey.dart';
 import 'package:bible_journey/main_bottom_nav_screen.dart';
 import 'package:bible_journey/notification_page.dart';
 import 'package:bible_journey/password_page.dart';
 import 'package:bible_journey/premium_page.dart';
+import 'package:bible_journey/privacy_page.dart';
 import 'package:bible_journey/profile_details.dart';
 import 'package:bible_journey/terms_service.dart';
 import 'package:bible_journey/widgets/buttons/custom_navbar.dart';
@@ -194,7 +197,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomText(
                         textIconPath: 'assets/images/ShieldSlash.svg',
                         text: "Disabled Account",
-                        trailingIcon: Icons.arrow_forward_ios),
+                        trailingIcon: Icons.arrow_forward_ios,
+                        onTap: (){
+                          Navigator.push(
+                              context, MaterialPageRoute(builder: (_) => const DisabledPage()));
+                        }),
+
                     const SizedBox(height: 10),
 
                   ],
@@ -236,7 +244,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomText(
                         textIconPath: 'assets/images/Headset.svg',
                         text:  "Help & Support",
-                        trailingIcon: Icons.arrow_forward_ios),
+                        trailingIcon: Icons.arrow_forward_ios,
+                        onTap: (){
+                          Navigator.push(
+                              context, MaterialPageRoute(builder: (_) => const HelpsupportPage()));
+                        }),
 
                     const SizedBox(height: 10),
 
@@ -254,7 +266,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomText(
                       textIconPath: 'assets/images/Warning.svg',
                       text: "Privacy Policy ",
-                      trailingIcon:  Icons.arrow_forward_ios,),
+                      trailingIcon:  Icons.arrow_forward_ios,
+                        onTap: (){
+                          Navigator.push(
+                              context, MaterialPageRoute(builder: (_) => const PrivacyPage()));
+                        }),
 
                     const SizedBox(height: 10),
                   ],
@@ -262,7 +278,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
         
               SizedBox(height: 10),
-        
+
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 23),
                 margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
@@ -288,9 +304,9 @@ class _ProfilePageState extends State<ProfilePage> {
                               color: Color(0xff83BF8B),
                               size: 20,
                             ),
-        
+
                             const SizedBox(width: 10),
-        
+
                             const Text(
                               "Log Out",
                               style: TextStyle(

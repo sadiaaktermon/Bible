@@ -1,7 +1,9 @@
 import 'package:bible_journey/bible_page.dart';
+import 'package:bible_journey/daily_devotion_screen.dart';
 import 'package:bible_journey/life_area_journey.dart';
 import 'package:bible_journey/main_bottom_nav_screen.dart';
 import 'package:bible_journey/profile_page.dart';
+import 'package:bible_journey/widgets/buttons/custom_button.dart';
 import 'package:bible_journey/widgets/buttons/custom_navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -29,9 +31,6 @@ class _DailyPrayerScreenState extends State<DailyPrayerScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              const SizedBox(height: 20),
-
               const Text(
                 "A Morning Prayer for\nGratitude",
                 style: TextStyle(
@@ -56,11 +55,11 @@ class _DailyPrayerScreenState extends State<DailyPrayerScreen> {
                 ),
               ),
 
-              const SizedBox(height: 60),
+              const SizedBox(height: 30),
 
 
               Container(
-                height: 230,
+                height: 210,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(236, 229, 229, 0.5411764705882353),
@@ -177,6 +176,11 @@ class _DailyPrayerScreenState extends State<DailyPrayerScreen> {
                   ],
                 ),
               ),
+              SizedBox(height: 10),
+              CustomButton(text: "Next", onTap: (){
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => const DailyDevotionScreen()));
+              })
             ],
           ),
         ),

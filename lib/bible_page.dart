@@ -17,6 +17,13 @@ class BiblePage extends StatefulWidget {
 class _BiblePageState extends State<BiblePage> {
   int _selectedIndex = 1;
   bool isOldSelected = false;
+  bool showMarkChapters = false;
+  bool showLukeChapters = false;
+  bool showAll = false;
+  bool showActsChapters = false;
+  bool showRomans = false;
+  bool showCorinthians1 = false;
+  bool showCorinthians2 = false;
 
 
   @override
@@ -128,7 +135,7 @@ class _BiblePageState extends State<BiblePage> {
               child: const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "The Law Pentateuch",
+                  "The Gospels",
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -136,11 +143,11 @@ class _BiblePageState extends State<BiblePage> {
               ),
             ),
             SizedBox(height: 10),
-        
+
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 23),
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
-              height: 185,
+              height: 280,
               decoration: BoxDecoration(
                 color: const Color(0xffFCFAF9),
                 borderRadius: BorderRadius.circular(24),
@@ -149,7 +156,367 @@ class _BiblePageState extends State<BiblePage> {
                   width: 1,
                 ),
               ),
-              child: Row(
+              child:Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Matthew",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text(
+                                "28 Chapters",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+
+
+                              SizedBox(
+                                height: 40,
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      ...List.generate(
+                                        showAll ? 28 : 6,
+                                            (index) => Padding(
+                                          padding: const EdgeInsets.only(right: 2),
+                                          child: CustomMinibox(
+                                            number: index + 1,
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (_) => const DailyReflectionSpace(),
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      if (!showAll)
+                                        GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              showAll = true;
+                                            });
+                                          },
+                                          child: Container(
+                                            width: 27,
+                                            height: 26,
+                                            margin: const EdgeInsets.only(left: 2),
+                                            decoration: BoxDecoration(
+                                              color: Colors.grey[300],
+                                              borderRadius: BorderRadius.circular(8),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: const Text(
+                                              "...",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showAll = !showAll;
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 2),
+                          child: Icon(
+                            showAll ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                            size: 30,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 10),
+
+                  // Mark Row
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Mark",
+                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 4),
+                            const Text(
+                              "24 Chapters",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            if (showMarkChapters)
+                              SizedBox(
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: List.generate(
+                                      24,
+                                          (index) => Padding(
+                                        padding: const EdgeInsets.only(right: 0),
+                                        child: CustomMinibox(
+                                          number: index + 1,
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (_) => const DailyReflectionSpace(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showMarkChapters = !showMarkChapters;
+                          });
+                        },
+                        child: Icon(
+                          showMarkChapters ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 19),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Luke",
+                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 4),
+                            const Text(
+                              "24 Chapters",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            if (showLukeChapters)
+                              SizedBox(
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: List.generate(
+                                      24,
+                                          (index) => Padding(
+                                        padding: const EdgeInsets.only(right: 0),
+                                        child: CustomMinibox(
+                                          number: index + 1,
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (_) => const DailyReflectionSpace(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showLukeChapters = !showLukeChapters;
+                          });
+                        },
+                        child: Icon(
+                          showLukeChapters ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                ],
+          ),
+        ),
+
+            SizedBox(height: 5),
+        
+            Padding(
+              padding: const EdgeInsets.only(left: 20, top: 5),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "History",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 23),
+              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
+              decoration: BoxDecoration(
+                color: const Color(0xffFCFAF9),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                  color: const Color(0xffDAD6D6),
+                  width: 1,
+                ),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "Acts",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              "24 Chapters",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showActsChapters = !showActsChapters;
+                          });
+                        },
+                        child: Icon(
+                          showActsChapters ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  if (showActsChapters)
+                    SizedBox(
+                      height: 40,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: List.generate(
+                            24,
+                                (index) => Padding(
+                              padding: const EdgeInsets.only(right: 4),
+                              child: CustomMinibox(
+                                number: index + 1,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => const DailyReflectionSpace(),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, top: 5),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "Paul's Letters",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 15),
+
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 23),
+          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
+          height: 290,
+          decoration: BoxDecoration(
+            color: const Color(0xffFCFAF9),
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(
+              color: Color(0xffDAD6D6),
+              width: 1,
+            ),
+          ),
+          child: Column(
+            children: [
+
+              //ROMANS
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -160,7 +527,7 @@ class _BiblePageState extends State<BiblePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            "Genesis",
+                            "Romans",
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -168,118 +535,194 @@ class _BiblePageState extends State<BiblePage> {
                           ),
                           const SizedBox(height: 4),
                           const Text(
-                            "50 Chapters",
+                            "16 Chapters",
                             style: TextStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.normal,
                             ),
                           ),
-                          CustomMinibox(number: 1, onTap:(){
-                            Navigator.push(
-                                context,  MaterialPageRoute(builder: (_) => const DailyReflectionSpace()));
-                          }
-                          ),
+                          const SizedBox(height: 5),
+
+                          if (showRomans)
+                            SizedBox(
+                              height: 40,
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: List.generate(
+                                    16,
+                                        (index) => Padding(
+                                      padding: const EdgeInsets.only(right: 2),
+                                      child: CustomMinibox(
+                                        number: index + 1,
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (_) => const DailyReflectionSpace(),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                         ],
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Icon(Icons.arrow_forward_ios, size: 20),
-                  ),
-                ],
-              ),
-            ),
-        
-        
-            SizedBox(height: 5),
-        
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 5),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: const Text(
-                  "The Beginning of Creation",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 23),
-              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
-              height: 130,
-              decoration: BoxDecoration(
-                color: const Color(0xffFCFAF9),
-                borderRadius: BorderRadius.circular(24),
-                border: Border.all(
-                  color: Color(0xffDAD6D6),
-                  width: 1,
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Expanded(
-                    child: Text(
-                      "Exodus",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        showRomans = !showRomans;
+                      });
+                    },
+                    child: Icon(
+                      showRomans ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                      size: 30,
                     ),
                   ),
-                  Icon(Icons.arrow_forward_ios, size: 20),
                 ],
               ),
-            ),
-            SizedBox(height: 5),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 5),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: const Text(
-                  "The Beginning of Creation",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 23),
-              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
-              height: 175,
-              decoration: BoxDecoration(
-                color: const Color(0xffFCFAF9),
-                borderRadius: BorderRadius.circular(24),
-                border: Border.all(
-                  color: Color(0xffDAD6D6),
-                  width: 1,
-                ),
-              ),
-              child: Row(
+
+              SizedBox(height: 10),
+
+              // 1 CORINTHIANS
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Expanded(
-                    child: Text(
-                      "Leviticus",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "1 Corinthians",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 4),
+                        const Text(
+                          "16 Chapters",
+                          style: TextStyle(fontSize: 10),
+                        ),
+
+                        if (showCorinthians1)
+                          SizedBox(
+                            height: 40,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: List.generate(
+                                  16,
+                                      (index) => Padding(
+                                    padding: const EdgeInsets.only(right: 2),
+                                    child: CustomMinibox(
+                                      number: index + 1,
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (_) => const DailyReflectionSpace(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
                     ),
                   ),
-                  Icon(Icons.arrow_forward_ios, size: 20),
+
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        showCorinthians1 = !showCorinthians1;
+                      });
+                    },
+                    child: Icon(
+                      showCorinthians1 ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                      size: 30,
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
+
+              SizedBox(height: 19),
+
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "2 Corinthians",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 4),
+                        const Text(
+                          "13 Chapters",
+                          style: TextStyle(fontSize: 10),
+                        ),
+
+                        if (showCorinthians2)
+                          SizedBox(
+                            height: 40,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: List.generate(
+                                  13,
+                                      (index) => Padding(
+                                    padding: const EdgeInsets.only(right: 2),
+                                    child: CustomMinibox(
+                                      number: index + 1,
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (_) => const DailyReflectionSpace(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        showCorinthians2 = !showCorinthians2;
+                      });
+                    },
+                    child: Icon(
+                      showCorinthians2 ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                      size: 30,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
+      ]
+    ),
+    ),
 
       bottomNavigationBar: CustomNavbar(
         currentIndex: _selectedIndex,
